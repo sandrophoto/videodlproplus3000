@@ -65,6 +65,18 @@ nav .btn{padding:11px 16px}
   transition:color .2s,border-color .2s}
 .lnk:hover{color:var(--app);border-color:var(--app)}
 
+/* ---------- Téléchargement en pause ----------
+   Les binaires restent dans les Releases et les apps installées continuent
+   de se mettre à jour : seule la mise à disposition publique est suspendue. */
+.soon{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;
+  text-transform:uppercase;letter-spacing:.1em;padding:14px 22px;background:var(--yellow);color:var(--ink)}
+.soon::before{content:"";width:8px;height:8px;background:var(--ink);flex:none;
+  animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.25}}
+nav .soon{padding:11px 16px;font-size:11px}
+.slab .soon{background:var(--ink);color:var(--paper)}
+.slab .soon::before{background:var(--paper)}
+
 /* ---------- HERO ---------- */
 .hero{display:grid;grid-template-columns:1fr}
 @media(min-width:900px){.hero{grid-template-columns:1.1fr .9fr}}
@@ -257,7 +269,7 @@ footer .mail:hover{border-color:var(--yellow)}
         <a href="#features">Fonctions</a>
         <a href="#workflow">Étapes</a>
         <a href="https://github.com/sandrophoto/videodlproplus3000">GitHub</a>
-        <a class="btn" href="https://github.com/sandrophoto/videodlproplus3000/releases/latest">Télécharger <span class="ar">↓</span></a>
+        <span class="soon">Téléchargement en pause</span>
       </div>
     </div>
   </nav>
@@ -268,7 +280,7 @@ footer .mail:hover{border-color:var(--yellow)}
       <h1>Tes vidéos YouTube,<br>en H.264, en un clic.</h1>
       <p class="sub">Colle un lien, récupère la vidéo (ou juste l'audio en <strong>MP3</strong>) et laisse l'app la convertir en <strong>H.264</strong> — accélérée par le matériel de ton Mac. Tout est embarqué, zéro installation.</p>
       <div class="cta">
-        <a class="btn" href="https://github.com/sandrophoto/videodlproplus3000/releases/latest">Télécharger gratuitement <span class="ar">↓</span></a>
+        <span class="soon">Téléchargement en pause</span>
         <a class="lnk" href="#features">Découvrir <span class="ar">→</span></a>
       </div>
       <p class="ver">macOS 14+ · Apple Silicon &amp; Intel · mises à jour auto</p>
@@ -378,11 +390,10 @@ footer .mail:hover{border-color:var(--yellow)}
   <div class="slab">
     <div class="sq1"></div>
     <div class="tri2"></div>
-    <h2>Prêt à l'essayer ?</h2>
-    <p class="lead">Téléchargement gratuit. Universel Apple&nbsp;Silicon &amp; Intel.</p>
+    <h2>Bientôt de retour.</h2>
+    <p class="lead">Le téléchargement est en pause, le temps qu'on remette tout d'équerre. Les apps déjà installées continuent de se mettre à jour.</p>
     <div class="cta">
-      <a class="btn" href="https://github.com/sandrophoto/videodlproplus3000/releases/latest">Télécharger pour macOS <span class="ar">↓</span></a>
-      <a class="lnk" href="https://github.com/sandrophoto/videodlproplus3000/releases">Toutes les versions</a>
+      <span class="soon">Téléchargement en pause</span>
     </div>
     <div class="reqs">
       <span>macOS 14+</span>
@@ -398,7 +409,7 @@ footer .mail:hover{border-color:var(--yellow)}
         <a class="mail" href="https://sandrophoto.github.io/#studio">Le studio →</a>
       </div>
       <div class="foot-r">
-        <div><a href="https://github.com/sandrophoto/videodlproplus3000">GITHUB</a> · <a href="https://github.com/sandrophoto/videodlproplus3000/releases">VERSIONS</a> · <a href="https://tigre.paris">TIGRE.PARIS</a></div>
+        <div><a href="https://github.com/sandrophoto/videodlproplus3000">GITHUB</a> · <a href="https://tigre.paris">TIGRE.PARIS</a></div>
         <div>© <span id="yr">2026</span> STUPIDS STUDIO — VIDEO DL PRO PLUS 3000</div>
         <div>PETITS LOGICIELS, GROSSES OPINIONS</div>
       </div>
