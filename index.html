@@ -137,6 +137,47 @@ nav .btn{padding:11px 16px}
 .ticker b::after{content:"";width:7px;height:7px;background:var(--app);flex:none}
 @keyframes scrollx{to{transform:translateX(-50%)}}
 
+/* ---------- L'APP ----------
+   Maquette de la fenêtre Réglages → Conversion : mêmes libellés, même
+   structure (barre latérale à catégories, panneau à lignes de réglage).
+   Rendue en aplats plutôt qu'en capture : pas de bordures, pas d'arrondis. */
+.shot{background:var(--paper-2);overflow:hidden}
+.shot .bar{background:var(--ink);padding:11px 16px;display:flex;align-items:center;gap:8px}
+.shot .bar i{width:9px;height:9px;border-radius:50%;flex:none}
+.shot .bar i:nth-child(1){background:var(--red)}
+.shot .bar i:nth-child(2){background:var(--yellow)}
+.shot .bar i:nth-child(3){background:var(--app)}
+.shot .bar span{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:#8f8f8f;margin-left:8px}
+.shot .body{display:grid;grid-template-columns:1fr}
+@media(min-width:760px){.shot .body{grid-template-columns:214px 1fr}}
+/* barre latérale */
+.side{background:var(--paper);padding:14px 12px}
+.side h5{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:#8f8f8f;font-weight:400;padding:16px 8px 6px}
+.sd{display:flex;align-items:center;gap:11px;padding:7px 8px;margin-bottom:2px}
+.sd .ic{width:22px;height:22px;background:#c9c9c9;flex:none}
+.sd .nm{font-size:13.5px;font-weight:600}
+.sd.on{background:var(--paper-2)}
+.sd.on .ic{background:var(--app)}
+/* panneau de droite */
+.pane{padding:22px}
+.pane-h{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.pane-h .ic{width:26px;height:26px;background:var(--app);flex:none}
+.pane-h h4{font-size:19px;font-weight:800;letter-spacing:-.02em}
+.row{display:flex;align-items:center;gap:16px;padding:13px 15px;background:var(--white);margin-bottom:3px}
+.row .lbl{font-size:13.5px;font-weight:700;letter-spacing:-.01em;display:block}
+.row .sub{font-family:var(--mono);font-size:10.5px;color:#5a5a5a;display:block;margin-top:3px;line-height:1.45}
+.row .tr{margin-left:auto;flex:none}
+/* interrupteur carré : aplat + pavé, jamais d'arrondi */
+.sw{width:36px;height:19px;background:var(--app);display:flex;align-items:center;padding:2px;
+  justify-content:flex-end}
+.sw i{width:15px;height:15px;background:var(--white);display:block}
+.sw.off{background:#c9c9c9;justify-content:flex-start}
+/* menu déroulant */
+.pick{display:flex;align-items:center;gap:9px;background:var(--paper-2);padding:6px 10px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em}
+.pick s{color:#8f8f8f;text-decoration:none;font-size:9px}
+
 /* ---------- SECTIONS ---------- */
 section{padding:74px 0}
 .sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;
@@ -212,6 +253,7 @@ footer .mail:hover{border-color:var(--yellow)}
         <span class="name">Video DL Pro Plus 3000</span>
       </a>
       <div class="nav-links">
+        <a href="#app">L'app</a>
         <a href="#features">Fonctions</a>
         <a href="#workflow">Étapes</a>
         <a href="https://github.com/sandrophoto/videodlproplus3000">GitHub</a>
@@ -256,7 +298,55 @@ footer .mail:hover{border-color:var(--yellow)}
     <div class="track" id="track"><b>Moteur · yt-dlp</b><b>Conversion · FFmpeg</b><b>Accélération · VideoToolbox</b></div>
   </div>
 
-  <section id="features" class="wrap">
+  <section id="app" class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow rv">L'APP</p>
+      <p class="note rv">Réglages → Conversion. Réglé une fois, oublié ensuite.</p>
+    </div>
+    <h2 class="rv" style="margin-bottom:40px">Quatre réglages,<br>et on n'y revient plus.</h2>
+    <div class="shot rv" aria-hidden="true">
+      <div class="bar"><i></i><i></i><i></i><span>VIDEO DL PRO PLUS 3000 · RÉGLAGES</span></div>
+      <div class="body">
+        <!-- barre latérale : les catégories réelles, dans l'ordre de l'app -->
+        <div class="side">
+          <div class="sd"><span class="ic"></span><span class="nm">Général</span></div>
+          <h5>Conversion &amp; rendu</h5>
+          <div class="sd on"><span class="ic"></span><span class="nm">Conversion</span></div>
+          <div class="sd"><span class="ic"></span><span class="nm">Apparence</span></div>
+          <h5>Maintenance</h5>
+          <div class="sd"><span class="ic"></span><span class="nm">Mises à jour</span></div>
+          <div class="sd"><span class="ic"></span><span class="nm">Composants</span></div>
+        </div>
+
+        <!-- panneau Conversion : libellés et sous-titres repris tels quels -->
+        <div class="pane">
+          <div class="pane-h"><span class="ic"></span><h4>Conversion</h4></div>
+          <div class="row">
+            <span><span class="lbl">Convertir la vidéo si nécessaire</span>
+              <span class="sub">Ré-encode si la source n'est pas déjà dans le codec choisi</span></span>
+            <span class="tr"><span class="sw"><i></i></span></span>
+          </div>
+          <div class="row">
+            <span><span class="lbl">Codec de sortie</span>
+              <span class="sub">H.264 : compatible partout · HEVC : fichiers plus légers</span></span>
+            <span class="tr"><span class="pick">H.264 <s>▾</s></span></span>
+          </div>
+          <div class="row">
+            <span><span class="lbl">Accélération matérielle</span>
+              <span class="sub">Encodeur du Mac (VideoToolbox), bien plus rapide</span></span>
+            <span class="tr"><span class="sw"><i></i></span></span>
+          </div>
+          <div class="row">
+            <span><span class="lbl">Conserver le fichier d'origine</span>
+              <span class="sub">Garde la source à côté de la version H.264</span></span>
+            <span class="tr"><span class="sw off"><i></i></span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="wrap" style="padding-top:0">
     <div class="sec-head">
       <p class="eyebrow rv">FONCTIONNALITÉS</p>
       <p class="note rv">Pensée pour être rapide, autonome et toujours à jour.</p>
